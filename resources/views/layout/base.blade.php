@@ -3,9 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>
-        @yield('title')
-    </title>
+    <title>@yield('title')</title>
 
       <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="{{ asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback') }}">
@@ -70,6 +68,19 @@
 <script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script>
+<script type="module">
+        const setSidebarActive = index => {
+            if (index === null) return;
+            document.querySelectorAll('#sidebar-menu > li > a').forEach(function (anchor, currentIndex) {
+                currentIndex++;
+                if (currentIndex === index && anchor.classList.contains('active')) return;
+                if (currentIndex === index) anchor.classList.add('active');
+                else anchor.classList.remove('active');
+            });
+        };
+
+        setSidebarActive(@yield('si'));
+    </script>
 
 </body>
 </html>
