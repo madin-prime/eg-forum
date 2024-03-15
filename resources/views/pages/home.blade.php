@@ -1,6 +1,6 @@
 @extends('layout.base')
 
-@section('title','{{ config("app.name") }}')
+@section('title', config('app.name'))
 
 @section('content')
 
