@@ -13,7 +13,7 @@
                         <form action="{{ route('auth') }}" method="post">
                         @csrf
                                 <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="First Your Name">
+                                    <input type="text" name="name" class="form-control" placeholder="Your Full Name">
                                 </div>
                             <div class="form-group">
                                 <input type="email" name="email" class="form-control" id="email" placeholder="Enter Your Email">
@@ -22,14 +22,11 @@
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
                             </div>
                             <div class="form-group">
-                                <input type="date" name="birth" class="form-control" id="password" placeholder="Enter password">
-                            </div>
-                            <div class="form-group">
                                 <button type="submit" class="btn btn-outline-primary btn-block">Sign in</button>
                             </div>
                         </form>
                         <p class="text-center" >
-                            Already have an account?<a href="{{ route('log') }}">Login</a>
+                            Already have an account?<a href="{{ route('login') }}">Login</a>
                         </p>
                     </div>
                 </div>

@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,15 +13,23 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+Route::middleware('guest')->group(function () {
+    Route::get('/', function () {
+        return view('pages.auth.login');
+    })->name('login');
+    Route::post('/',[AuthController::class, 'login'])->name('log-in');
+    Route::post('/register', [AuthController::class , 'register'])->name('auth');
+    Route::get('/register', function () {
+        return view('pages.auth.register');
+    })->name('register');
+});
 
-Route::get('/', function () {
-    return view('pages.auth.login');
-})->name('log');
+Route::middleware('auth')->group(function () {
+    
+    Route::get('/home', function (Request $request) {
+        return view('pages.home')->with('user', $request->user());
+    })->name('name');
+});
 
-Route::post('/register', [AuthController::class , 'register'])->name('auth');
 
-Route::get('/register', function () {
-    return view('pages.auth.register');
-})->name('register');
-
-Route::post('/home', function () {});
+Route::get('/test', fn(Request $request) => $request->user());
