@@ -27,8 +27,8 @@
   <link rel="stylesheet" href="{{ asset('adminlte/plugins/summernote/summernote-bs4.min.css') }}">
 
 </head>
-<body>
-
+<body class="hold-transition sidebar-mini layout-fixed">
+<div class="wrapper">
 @include('layout.header')
 @include('layout.sidebar')
 @yield('content')
@@ -64,9 +64,6 @@
 <script src="{{ asset('adminlte/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('adminlte/dist/js/adminlte.js') }}"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('adminlte/dist/js/demo.js') }}"></script>
-<!-- AdminLTE dashboard demo (This is only for demo purposes) -->
 <script src="{{ asset('adminlte/dist/js/pages/dashboard.js') }}"></script>
 <script type="module">
         const setSidebarActive = index => {
@@ -81,6 +78,6 @@
 
         setSidebarActive(@yield('si'));
     </script>
-
+</div>
 </body>
 </html>

@@ -20,9 +20,13 @@
                             </div>
                             <div class="form-group">
                                 <input type="password" name="password" class="form-control" id="password" placeholder="Enter Password">
+                                
                             </div>
                             <div class="form-group">
-                                <button type="submit" class="btn btn-outline-primary btn-block">Sign in</button>
+                                <input type="text" name="username" class="form-control" id="username" placeholder="Enter Username">
+                            </div>
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-outline-primary btn-block">Sign up</button>
                             </div>
                         </form>
                         <p class="text-center" >
