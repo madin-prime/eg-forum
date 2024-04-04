@@ -4,7 +4,7 @@
   <a href="index3.html" class="brand-link">
     <img src="{{ asset('adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
          style="opacity: .8">
-    <span class="brand-text font-weight-light">Eg-Forum</span>
+    <span class="brand-text font-weight-light">{{ config('app.name') }}</span>
   </a>
 
   <!-- Sidebar -->
@@ -27,7 +27,7 @@
 
         <li class="nav-item">
           <a href="{{ route('post') }}" class="nav-link">
-            <i class="nav-icon fas fa-home"></i>
+          <i class="nav-icon fas fa-pen-nib"></i>
             <p>
               Write a Post
             </p>
@@ -39,6 +39,14 @@
             <i class="nav-icon fas fa-home"></i>
             <p>
               Feed
+            </p>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a href="{{ route('my-posts') }}" class="nav-link">
+          <i class="nav-icon fas fa-user"></i>
+            <p>
+              My Post
             </p>
           </a>
         </li>

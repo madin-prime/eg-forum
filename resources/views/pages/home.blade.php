@@ -9,35 +9,35 @@
 @section('content')
 
 
-<div class="content-wrapper">
-    <div class="content">
-        @foreach( $posts as $post )
-            <div class="card card-outline card-info">
-                <p> 
-                    @php 
+    <div class="content-wrapper">
+        <div class="content">
+            @foreach( $posts as $post )
+                <div class="card card-outline card-info">
+                    <p> 
+                        @php 
 
-                    $user = \App\Models\User::find($post->user_id);
+                        $user = \App\Models\User::find($post->user_id);
 
-                    if( $user ){
-                    
-                    echo $user->username ;
-                    }
+                        if( $user ){
+                        
+                        echo $user->username ;
+                        }
 
-                    else{
-                    echo 'deleted user';
-                    }
+                        else{
+                        echo 'deleted user';
+                        }
 
-                    @endphp
-                    <br>
-                        {{$post->created_at}}
-                    <br>
-                        {{$post->content}}
-                    <br>
-                </p>
-            </div>
-        @endforeach
-                    
+                        @endphp
+                        <br>
+                            {{$post->created_at}}
+                        <br>
+                            {{$post->content}}
+                        <br>
+                    </p>
+                </div>
+            @endforeach
+                        
+        </div>
     </div>
-</div>
 
 @endsection

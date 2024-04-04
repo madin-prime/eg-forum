@@ -46,4 +46,8 @@ Route::middleware('auth')->group(function () {
     Route::get('logout', [ AuthController::class, 'logout'])->name('logout');
     
     Route::get('delete-account', [AuthController::class, 'deleteAccount'])->name('delete');
+
+    Route::get('my-posts' , function (Request $request) {
+        return view('pages.myposts')->with('user', $request->user())->with('posts', Post::all());
+    })->name('my-posts');
 });
