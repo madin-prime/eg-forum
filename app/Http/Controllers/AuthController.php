@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
-use App\Models\Post;
 use Illuminate\Http\Request;
 use Validator;
 
@@ -13,7 +12,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'username'=> 'required|unique:users',
             'name'=> 'required',
-            'email' => 'required|email|unique:users',
+            'email' => 'required|email|unique:users|indisposable',
             'password' => 'required|min:8'
          ]);
 
