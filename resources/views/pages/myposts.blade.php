@@ -11,19 +11,23 @@
 <div class="content-wrapper">
         <div class="content">
             @foreach( $posts as $post )
-                <div class="card card-outline card-info">
-                    <p> 
-                        <?php
-                            if( $user->id == $post->user_id ) {
+
+                @if( $user->id == $post->user_id ) 
+                            
+                    <div class="card card-outline card-info">
+                        <p>
+                            @php
                                 echo $user->username ;
                                 echo '<br>';
                                 echo $post->created_at ;
                                 echo '<br>';
                                 echo $post->content ;
-                            }
-                        ?>
-                    </p>
-                </div>
+                            @endphp
+                        </p>
+                    </div>
+                        
+                @endif           
+                        
             @endforeach
                         
         </div>
