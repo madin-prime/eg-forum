@@ -33,6 +33,11 @@
                         <br>
                             {{$post->content}}
                         <br>
+                        <br>
+                            <a href="{{ route('comment', ['id' => $post->id]) }}" class="nav-link">
+                                <i class="fas fa-comment"></i>
+                                Comment
+                            </a>
                     </p>
                 </div>
             @endforeach

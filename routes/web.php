@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\PostController;
 use Illuminate\Http\Request;
 use App\Models\Post;
@@ -50,4 +51,9 @@ Route::middleware('auth')->group(function () {
     Route::get('my-posts' , function (Request $request) {
         return view('pages.myposts')->with('user', $request->user())->with('posts', Post::all());
     })->name('my-posts');
+        
+    Route::get('comment/{id}', [CommentController::class, 'comment'])->name('comment-box');
+
+    Route::post('comment/{id}', [CommentController::class, 'commentPost'])->name('comment');
+
 });

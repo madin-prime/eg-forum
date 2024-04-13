@@ -11,11 +11,16 @@ class PostController extends Controller
 {
     public function createPost(Request $request){
         $validator = Validator::make($request->all(), [
-            'content' => 'required'
+            'content' => 'required|min:1'
+        ]);
+
+        $validator->setCustomMessages([
+            'content' => 'Content Must Required'
+
         ]);
 
         if($validator->fails()){
-            return 'error';
+            return $validator->errors()->all();
         }
 
         $post = new Post();

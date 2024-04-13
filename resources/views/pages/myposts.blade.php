@@ -12,8 +12,7 @@
         <div class="content">
             @foreach( $posts as $post )
 
-                @if( $user->id == $post->user_id ) 
-                            
+                @if( $user->id == $post->user_id )
                     <div class="card card-outline card-info">
                         <p>
                             @php
@@ -23,6 +22,10 @@
                                 echo '<br>';
                                 echo $post->content ;
                             @endphp
+                            <a href="{{ route('comment', ['id' => $post->id]) }}" class="nav-link">
+                                <i class="fas fa-comment"></i>
+                                Comment
+                            </a>
                         </p>
                     </div>
                         
